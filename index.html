@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<head>
-    <head>
-        <!-- HEAD GOES HERE AAAAAAAAAAAAa -->
-        <style>
-            h1 {text-align:middle}
-        </style>
-        <title>Noted</title>
-    </head>
-    <body>
-        <h1>Noted</h1>
-    </body>
-</head>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Noted</title>
+		<link rel="stylesheet" href="style/keyframes.css">
+		<link rel="stylesheet" href="style/style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<script src="js/script.js" defer></script>
+		<script fetchpriority="low" src="js/theme.js" defer></script>
+	</head>
+	<body>
+		<noscript>
+			<div id="noJavascriptContainer">
+				<h1 class="noJavascript">enable javascript!</h1>
+				<p class="noJavascript">
+				This site requires javascript to function
+					<br>
+				You can't simply play <a href="https://torproject.org">tor</a> everywhere on the internet, i'm afraid...
+					<br><br>
+				<span style="color: #fff">When you have enabled javascript, please refresh this page.</span>
+				</p>
+			</div>
+		</noscript>
+		<!-- <div id="theme">
+			<label for="peas">Light mode</label>
+			<input type="checkbox" name="peas" id="peas" />
+		</div> -->
+		<div id="textbox" contenteditable="true">Click to edit</div>
+
+		<!-- <button id="downloadbtn" onclick="download(textbox.innerHTML, 'text.txt')">download</button> -->
+
+		<!-- <p class="text"><a>a</a></p>
+		<p class="ae"><a>a</a></p> -->
+
+		<button class="settings">
+			<div class="material-icons" onclick="settings()">settings</div>
+		</button>
+
+		<div id="settingsmenu" class="">
+			<div id="settingsinner">
+				<h1>amoled mode?</h1>
+				<h3>aaaa</h3>
+				<p>nahs</p>
+				<button id="downloadbtn" onclick="download(textbox.innerHTML, 'text.txt')">download</button>
+			</div>
+		</div>
+
+		<p class="bottom">made with little care by <span><a href="https://github.com/williamanimate">williamanimate</a></span> whilst listening to <a href="https://youtu.be/zMlH7RH6psw">this</a></p>
+		<p class="bottom small">vedal your ai is broken btw 💯</p>
+
+		<div id="snackbar" class="">
+			<h1 id="snackbartitle"></h1>
+			<p id="snackbartext"></p>
+		</div>
+	</body>
+</html>

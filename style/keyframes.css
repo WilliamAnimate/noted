@@ -1,0 +1,41 @@
+/* so you can have it in one place ™ */
+
+@keyframes snackbar {
+	0% {
+		opacity: 0;
+		right: -300px;
+	}
+	100% {
+		opacity: 1;
+		right: 12px;
+	}
+}
+
+@keyframes settings {
+	0% {
+		opacity: 0;
+		right: 0px;
+	}
+	100% {
+		opacity: 1;
+		right: 12px;
+	}
+}
+
+@keyframes settingsd {
+	0% {
+		opacity: 0;
+		/* background-color: white; */
+		right: 25px;
+	}
+	100% {
+		opacity: 1;
+		/* background-color: transparent; */
+		right: 50px;
+	}
+}
+
+@keyframes fadein {
+	0% {opacity:0}
+	100% {opacity:1}
+}
