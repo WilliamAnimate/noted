@@ -1,6 +1,14 @@
 const textbox = document.getElementById('textbox');
+try {
+	const textWrappingStatusText = document.getElementById('textWrappingStatusText');
+	console.log(textWrappingStatusText.classList());
+} catch {
+	console.warn("a");
+}
 var clearOnClick = true; // haha boolean
 var snackbarReady = true;
+
+const debug = true;
 
 textbox.addEventListener('click', () => {
 	focus();
@@ -10,7 +18,8 @@ textbox.addEventListener('blur', () => {
 	unfocus();
 });
 
-// is this inefficient?
+// goofy ahh code gonna run every time you hit a key, ggs.
+// TODO: make code to unregister event listener? I don't trust JIT if it can't handle a while(true)
 document.addEventListener('keyup', e => {
 	if (e.key === 'Escape') {
 		unfocus();
@@ -20,13 +29,13 @@ document.addEventListener('keyup', e => {
 		focus();
 	}
 
-	if (e.key === "d") {
-		console.log("secret debug key hit");
-		settings();
-	}
+	// if (e.key === "d") {
+	// 	console.log("secret debug key hit");
+	// 	settings();
+	// }
 });
 
-// no more styling
+// remove styling on paste
 textbox.addEventListener('paste', (e) => {
 	e.preventDefault();
 	const text = (e.clipboardData || window.Clipboard).getData('text/plain');
@@ -38,12 +47,29 @@ textbox.addEventListener('paste', (e) => {
 // FUNCTIONS //
 ///////////////
 
+function dbglog(input) {
+	if (debug) {
+		console.log(debug);
+	}
+}
+
 /**
  * read the damn function name lmao
  */
 function toggleTextWrapping() {
+	// TODO: this sometimes doesn't work
+	// why?
+	// i don't fucking know
 	const wrapping = textbox.style.whiteSpace !== 'nowrap';
 	textbox.style.whiteSpace = wrapping ? 'nowrap' : 'normal';
+
+	dbglog("toggled text wrapping: " + wrapping);
+
+	if (wrapping) {
+		snackbar("success", "wrapping successfully enabled");
+	} else {
+		snackbar("success", "wrapping successfully disabled");
+	}
 }
 
 function unfocus() {
@@ -71,20 +97,17 @@ function focus() {
 }
 
 function download(variable, filename) {
-	const a = document.createElement('a');
+	let x = JSON.stringify(variable).slice(1, -1);// remove the ""s at the beginning and end
 
 	// thank you chatgpt for this amazingly formatted solution 💯💯💯💯💯
-	a.href = URL.createObjectURL(new Blob([JSON.stringify(variable)],{type: 'application/json'}));
+	const a = document.createElement('a');
+	a.href = URL.createObjectURL(new Blob([x],{type: 'application/json'}));
 	a.download = filename || 'text.txt';
 
 	document.body.appendChild(a);
 	a.click();
 	document.body.removeChild(a);
 }
-
-// function download() {
-// 	deez(textbox.innerHTML, 'text.txt');
-// }
 
 function settings() {
 	const settingsmenu = document.getElementById("settingsmenu");
@@ -105,20 +128,6 @@ function settings() {
 			settingsinner.className = "modalOpen";
 		}, 100);
 	}
-
-	// Check if the element has class "a"
-	// if (b.classList.contains("modalClosed")) {
-	// 	// If it has class "a", remove it and add class "b"
-	// 	b.classList.remove("modalClosed");
-	// 	b.classList.add("modalOpen");
-	// } else if (b.classList.contains("modalOpen")) {
-	// 	// If it has class "b", remove it and add class "a"
-	// 	b.classList.remove("modalOpen");
-	// 	b.classList.add("modalClosed");
-	// } else {
-	// 	console.error("you broke it");
-	// 	alert("you broke it");
-	// }
 }
 
 // just dont make the text super long lmao
@@ -145,5 +154,5 @@ function snackbar(title, message) {
 }
 
 console.log("Hello, world!");
-snackbar("hi", "something happend");
+// snackbar("hi", "something happend");
 // snackbar("hi", "something happend and stuff im making this message extremely long for the shits WOOOOOOOOOOOOO Lorem ipsum dolor sit amet justo diam lobortis no et amet justo consetetur lorem elitr invidunt dolore sit dolores sadipscing et rebum. Dolores mazim ipsum voluptua magna sed. Aliquyam facilisis kasd nibh ut sadipscing eos praesent illum sea vulputate consequat consequat sanctus elitr magna dolor. Nonumy sea enim dolore elitr consectetuer amet consequat vero. Nobis ea sadipscing nostrud elit nisl vero vero. Diam dolor lorem amet amet dolore. Dignissim duo et ea. Sanctus vero diam sadipscing et in vel. Sadipscing sed et dolor nonumy dolores labore luptatum dolore et sed adipiscing praesent suscipit kasd nonumy nonumy et rebum. Consequat ea et amet feugiat at invidunt no et ad gubergren et clita in labore. Molestie minim sed labore iriure sadipscing hendrerit aliquyam voluptua et diam takimata no tempor dolor ad sanctus gubergren blandit. Consetetur eos vero dolor eros sadipscing adipiscing molestie euismod at et sed accusam labore. Dolor ipsum aliquyam ullamcorper diam dolor consequat et doming lorem volutpat sit erat diam dolor molestie. Takimata takimata praesent duis takimata.");

@@ -40,22 +40,18 @@ button {
 	border: none;
 	cursor: pointer;
 }
-
-#downloadbtn {
-	/* position: fixed; */
-	/* right: 0px; */
-	font-size: 1em;
-	/* bottom: 14px; */
-
+/* regular buttons */
+.button {
 	padding: 5px 10px;
 	border-radius: 1ex;
 
 	background-color: #202020; /* 2020 ITS REAL */
 	color: #fff;
 	transition: 0.2s;
+	font-size: 1em;
 }
-#downloadbtn:hover {
-	/* background-color: #1b1b1b; */
+
+.button:hover {
 	color: #000;
 	background-color: #fff;
 }
