@@ -72,13 +72,12 @@
 				<!-- <button class="button" onclick="toggleTextWrapping()">Toggle text wrapping</button> -->
 				<h2>File</h2>
 				<button class="button" onclick="download(textbox.innerHTML, 'text.txt')">download</button>
-				<button class="button" onclick="">clear document</button>
 				<h2>Help</h2>
 				<button class="button" onclick="openDialog('keybinds_and_controls')">Keybinds and controls</button>
 				<button class="button" onclick="openDialog('help')">Help</button>
 				<button class="button" onclick="openDialog('faq')">FAQ</button>
 					<br><br>
-				<a class="button" style="color: #0ff; cursor: pointer">view source!</a>
+				<a class="button" style="color: #0ff; cursor: pointer; text-decoration: none" href="https://github.com/WilliamAnimate/noted">view source!</a>
 			</div>
 		</div>
 
@@ -103,6 +102,8 @@
 			<p><b>esc</b> - escape key to unfocus the editor</p>
 			<p><b>.</b> - dot key to focus editor.</p>
 			<p><b>ctrl s</b> - control + s key to download your file.</p>
+			<p><b>control + a + backspace</b> - control + a selects everything, backspace deletes everything.</p>
+			<p><b>control + a + c</b> - control + a selects everything, c copies everything.</p>
 				<br><br><br>
 			<p><b>PROTIP</b>: did ju know: control+v to paste whatever is on your clipboard! copy something with control+c to start.</p>
 			<button class="button" onclick="closeDialog('keybinds_and_controls')">Close</button>
