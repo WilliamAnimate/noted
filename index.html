@@ -7,11 +7,12 @@
 		<title>Noted</title>
 		<link rel="stylesheet" href="style/keyframes.css">
 		<link rel="stylesheet" href="style/style.css">
+		<link rel="stylesheet" href="style/dark.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-		<script src="js/script.js" defer></script>
-		<script src="js/functions.js"></script>
-		<script fetchpriority="low" src="js/theme.js" defer></script>
+		<script fetchpriority="high" src="js/functions.js" async></script>
+		<script fetchpriority="low" src="js/script.js" defer></script>
+		<script fetchpriority="low" src="js/theme.js" async></script>
 	</head>
 	<body>
 		<noscript>
@@ -26,16 +27,7 @@
 				</p>
 			</div>
 		</noscript>
-		<!-- <div id="theme">
-			<label for="peas">Light mode</label>
-			<input type="checkbox" name="peas" id="peas" />
-		</div> -->
-		<div id="textbox" contenteditable="true">Click to edit</div>
-
-		<!-- <button id="downloadbtn" onclick="download(textbox.innerHTML, 'text.txt')">download</button> -->
-
-		<!-- <p class="text"><a>a</a></p>
-		<p class="ae"><a>a</a></p> -->
+		<div id="textbox" contenteditable="true">Type your darkest secrets, no information is sent over the internet.</div>
 
 		<button class="settings">
 			<div class="material-icons" onclick="settings()">settings</div>
@@ -43,7 +35,9 @@
 
 		<div id="settingsmenu" class="">
 			<div id="settingsinner">
-				<h1>amoled mode?</h1>
+				<h1>Theme</h1>
+				<input type="checkbox" id="settings-light-toggle">
+				<label for="settings-light-toggle"> Use light mode</label>
 				<h3>aaaa</h3>
 				<p>nahs</p>
 				<button class="button" onclick="download(textbox.innerHTML, 'text.txt')">download</button>

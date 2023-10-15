@@ -1,6 +1,7 @@
+*:not(#textbox) {user-select: none}
 body {
-	background-color: black;
-	color: #bbbbbb;
+	background-color: var(--background-color);
+	color: var(--text-color);
 
 	animation: fadein 1s ease-in-out;
 }
@@ -13,7 +14,7 @@ html, button {font-family: lexend}
 	min-height: 100vh;
 	min-width: 100vw;
 
-	background-color: #1b1b1b50;
+	background-color: var(--background-foreground-color);
 
 	overflow: hidden !important;
 }
@@ -23,7 +24,7 @@ html, button {font-family: lexend}
 	opacity: 1;
 }
 .settings {
-	background-color: #00000000;
+	background-color: transparent;
 
 	position: fixed;
 	top: 10px;
@@ -36,7 +37,7 @@ html, button {font-family: lexend}
 
 button {
 	/* specify your own background */
-	color: white;
+	color: var(--text-color-pop);
 	border: none;
 	cursor: pointer;
 }
@@ -45,26 +46,26 @@ button {
 	padding: 5px 10px;
 	border-radius: 1ex;
 
-	background-color: #202020; /* 2020 ITS REAL */
-	color: #fff;
+	background-color: var(--button-background-color);
+	color: var(--text-color-pop);
 	transition: 0.2s;
 	font-size: 1em;
 }
 
 .button:hover {
-	color: #000;
-	background-color: #fff;
+	color: var(--background-color);
+	background-color: var(--text-color-pop);
 }
 
-.modalClosed {opacity: 0}
+.modalClosed {opacity:0}
 
-.modalOpen {opacity: 1}
+.modalOpen {opacity:1}
 
 #settingsmenu {
 	position: absolute;
 	top: 30px;
 
-	background-color: #1b1b1bdc;
+	background-color: var(--background-menus-color);
 
 	padding: 1.5vh 5vw;
 	margin: 10px;
@@ -86,7 +87,7 @@ button {
 	min-width: 250px;
 	margin-left: -125px;
 
-	color: white;
+	color: var(--text-color-pop);
 	visibility: hidden;
 }
 
@@ -100,14 +101,12 @@ button {
 }
 #settingsinner {
 	opacity: 0;
-	/* visibility: hidden; */
 	position: absolute;
 }
 #settingsinner.modalOpen {
 	animation: settingsd 0.5s;
 	right: 50px;
 	opacity: 1;
-	/* visibility: visible; */
 }
 #settingsinner.modalClosed {
 	animation: settingsd 0.3s reverse;
@@ -119,27 +118,30 @@ button {
 	right: 12px;
 	bottom: 12px;
 
-	padding: 50px;
+	padding: 30px;
 
 	min-width: 250px;
+	min-height: 50px;
 	margin-left: -125px;
 
-	background-color: #1f1f1fdc;
-	color: white;
+	background-color: var(--background-menus-color);
+	color: var(--text-color-pop);
 	visibility: hidden;
 }
 
-#snackbartitle {
+#snackbartitle, #snackbartext {margin: 0px}
+
+/* #snackbartitle {
 	position: absolute;
 	left: 20px;
 	top: 20px;
 	margin: 0px;
-}
-#snackbartext {
+} */
+/* #snackbartext {
 	position: absolute;
 	left: 20px;
 	top: 50px;
-}
+} */
 
 #snackbar.visible{
 	animation: snackbar 1s, snackbar reverse 1s 5s;
@@ -147,7 +149,7 @@ button {
 }
 
 #textbox {
-	border: 1px solid #2e2e2e;
+	border: 1px solid var(--border-textbox-color);
 	padding: 5px;
 	font-size: 16px;
 	min-height: 93vh;
@@ -155,15 +157,14 @@ button {
 	cursor: text;
 }
 
-/* Create an animated caret cursor */
 #textbox::after {
 	content: '';
 	position: absolute;
 	width: 2px;
 	height: 1.3em;
-	background: black;
+	background: var(--background-color);
 	animation: blink-caret 1.5s linear forwards infinite;
-	/* why tf is it not working as willitended™ half the time it just lags or some sh */
+	/* FIXME: this thing lags */
 }
 
 @keyframes blink-caret {
@@ -192,7 +193,7 @@ a {
 }
 a:hover {
 	transform: translateY(-10%);
-	color: white;
+	color: var(--text-color-pop);
 }
 
 a .noJavascript {
@@ -200,3 +201,40 @@ a .noJavascript {
 }
 
 .bottom.small {font-size: 0.8em}
+
+input[type="checkbox"] {
+	visibility: hidden;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+/* the actual checkbox */
+input[type="checkbox"] + label {
+	position: relative;
+	padding-left: 28px;
+	padding-right: 15px;
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 16px;
+	height: 16px;
+	border: 2px solid #2e2e2e;
+	border-radius: 3px;
+	background-color: #2e2e2e;
+
+	/* animation for the checkbox (see the rule below) */
+	transition: background-color 0.2s, border-color 0.2s;
+}
+
+input[type="checkbox"]:checked + label:before {
+	color: #fff;
+	background-color: #3f3f3f;
+	border-color: #696969;
+}

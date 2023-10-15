@@ -1,0 +1,14 @@
+/* dark mode css */
+/* NOT amoled */
+
+:root {
+	--background-foreground-color: #e4e4e450;
+	--background-color: #fff;
+	--text-color: #444;
+	--text-color-pop: #000;
+
+	--background-menus-color: #e0e0e0dc;
+	--border-textbox-color: #d1d1d1;
+
+	--button-background-color: #dfdfdf;
+}

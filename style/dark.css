@@ -1,0 +1,12 @@
+:root {
+	/* ??? what is a background foreground wiliam??!!11232r2 */
+	--background-foreground-color: #1b1b1b50;
+	--background-color: #000;
+	--text-color: #bbb;
+	--text-color-pop: #fff;
+
+	--background-menus-color: #1f1f1fdc;
+	--border-textbox-color: #2e2e2e;
+
+	--button-background-color: #202020;
+}

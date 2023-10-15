@@ -37,7 +37,7 @@ function unfocus() {
 
 	if (textbox.innerHTML == "" || textbox.innerHTML == "<br>" || textbox.innerHTML == null) {
 		// if its empty, then we change the stuff
-		textbox.innerHTML = "Click to edit";
+		textbox.innerHTML = "Type your darkest secrets, no information is sent over the internet.";
 		clearOnClick = true;
 	}
 }
@@ -182,3 +182,24 @@ function snackbarQueueSizeNotCorrect() {
 	}
 	return false;
 }
+
+/**
+ * replaces a CSS file located on the HTML head. This code is literally chatgpt generated because im too stupid to figure this out.
+ * @param {*} original original file, to be replaced.
+ * @param {*} replaceWith file to be replaced with.
+ */
+function replaceCSSFile(original, replaceWith) {
+	var link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.href = replaceWith;
+
+	var head = document.getElementsByTagName('head')[0];
+	var oldLink = document.querySelector('link[href="' + original + '"]');
+
+	if (oldLink) {
+		head.replaceChild(link, oldLink);
+	} else {
+		head.appendChild(link);
+	}
+}
+console.log("functions.js has parsed!");
