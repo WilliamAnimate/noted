@@ -59,11 +59,6 @@ document.getElementById("settings-light-toggle").addEventListener('change', func
     }
 });
 
-// what this code does is focuses and then unfocuses it, sometimes fixing that problem with borders.
-// this sometimes works, but sometimes doesn't
-focus();
-unfocus();
-
 console.log("I'm all ready!");
 document.getElementById("settings-light-toggle").checked = false;
 

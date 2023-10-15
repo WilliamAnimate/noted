@@ -248,3 +248,7 @@ function hlp_showKeybinds() {
 	openDialog("keybinds_and_controls");
 }
 console.log("functions.js has parsed!");
+
+// what this code does is focuses and then unfocuses it, fixing that problem with borders when you click them for the first time.
+focus();
+unfocus();
