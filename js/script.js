@@ -22,6 +22,7 @@ console.log("my essental code have ran!");
 // goofy ahh code gonna run every time you hit a key, ggs.
 // TODO: make code to unregister event listener? I don't trust JIT if it can't handle a while(true)
 document.addEventListener('keyup', e => {
+	// use case switch when too much if statements
 	if (e.key === 'Escape') {
 		// TODO: handle esc closing the <dialog> element. see functions.js's closeDialog();
 		// could add variables defining whether a dialog is open or not...?
@@ -30,6 +31,13 @@ document.addEventListener('keyup', e => {
 		focus();
 	}
 });
+document.addEventListener("keydown", e => {
+	// this is for control + whatever
+	if (e.ctrlKey && e.key === 's') {
+		e.preventDefault();
+		download(textbox.innerHTML, "text.txt");
+	}
+})
 
 // remove styling on paste
 textbox.addEventListener('paste', (e) => {
