@@ -144,7 +144,7 @@ button {
 } */
 
 #snackbar.visible{
-	animation: snackbar 1s, snackbar reverse 1s 5s;
+	animation: snackbar 1s, snackbar reverse 1s 3s;
 	visibility: visible;
 }
 

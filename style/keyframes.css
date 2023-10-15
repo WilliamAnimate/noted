@@ -1,5 +1,5 @@
 @keyframes snackbar {
-	0% {opacity:0;right:-300px}
+	0%{opacity:0;right:-300px}
 	100%{opacity:1;right:12px}
 }
 

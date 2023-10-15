@@ -10,9 +10,9 @@
 		<link rel="stylesheet" href="style/dark.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+		<script fetchpriority="high" src="js/variables.js" async></script>
 		<script fetchpriority="high" src="js/functions.js" async></script>
 		<script fetchpriority="low" src="js/script.js" defer></script>
-		<script fetchpriority="low" src="js/theme.js" async></script>
 	</head>
 	<body>
 		<noscript>
@@ -45,7 +45,7 @@
 				<p id="textWrappingStatusText">check console for errors</p>
 				<button class="button" onclick="toggleTextWrapping()">Toggle text wrapping</button>
 					<br>
-				<button class="button" onclick="hlp_showKeybinds()">Keybinds and controls</button>
+				<button class="button" onclick="openDialog('keybinds_and_controls')">Keybinds and controls</button>
 					<br><br>
 				<a class="button" style="color: red">view source</a>
 			</div>
@@ -57,6 +57,8 @@
 			<p><b>esc</b> - escape key to unfocus the editor</p>
 			<p><b>.</b> - dot key to focus editor.</p>
 			<p><b>ctrl s</b> - control + s key to download your file.</p>
+				<br><br><br>
+			<p><b>PROTIP</b>: did ju know: control+v to paste whatever is on your clipboard! copy something with control+c to start.</p>
 			<button class="button" onclick="closeDialog('keybinds_and_controls')">Close</button>
 		</dialog>
 

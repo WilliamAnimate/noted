@@ -113,9 +113,7 @@ function snackbar(title, message) {
 		snackbarQueueMessage.push(message);
 		snackbarQueueSize++;
 
-		if (snackbarQueueSizeNotCorrect()) {
-			// TODO: error handling
-		}
+		snackbarVerifyQueueSizeIsIntact();
 		return;
 	}
 
@@ -124,7 +122,7 @@ function snackbar(title, message) {
 		snackbarQueueMessage.shift();
 		snackbarQueueSize--;
 
-		if (snackbarQueueSizeNotCorrect()) {
+		if (snackbarVerifyQueueSizeIsIntact()) {
 			return;
 		}
 	}
@@ -148,8 +146,7 @@ function snackbar(title, message) {
 			setTimeout(function() {
 				snackbarDoQueue();
 			}, 700);
-		}, 5900);
-		// }, 900);
+		}, 3900);
 	}
 }
 
@@ -170,14 +167,24 @@ function snackbarDoQueue() {
 
 /**
  * detects whether the variable `snackbarQueueSize` is properly set, so you dont have to check the length of snackbarQueueMessage and snackbarQueueTitle.
+ *
+ * **This code will clear the queue if its incorrect, unless debug mode is on
  * @returns true for mismatch, false for correct.
  */
-function snackbarQueueSizeNotCorrect() {
+function snackbarVerifyQueueSizeIsIntact() {
 	// this is stupid.
 	if (snackbarQueueSize !== snackbarQueueMessage.length ||
 		snackbarQueueSize !== snackbarQueueTitle.length
 	) {
 		console.error("snackbarQueueSize and snackbarQueueMessage/snackbarQueueTitle does not match the expected size! Are you doing something?");
+		console.error(snackbarQueueSize);
+		console.error(snackbarQueueTitle);
+		console.error(snackbarQueueMessage);
+		if (!!debug) {
+			snackbarQueueSize = 0;
+			snackbarQueueMessage = [];
+			snackbarQueueTitle = [];
+		}
 		return true;
 	}
 	return false;
@@ -237,15 +244,6 @@ function openDialog(dial) {
 
 	// crappy fix to prevent the dialog from being at the bottom
 	dialog.scrollTo(0, 0);
-}
-
-/**
- * shows the keybinds
- *
- * **THIS FUNCTION IS NOT DESIGNED TO BE CALLED BY ANY CODE, ONLY BY THE END USER FROM CLICKING A BUTTON**
- */
-function hlp_showKeybinds() {
-	openDialog("keybinds_and_controls");
 }
 console.log("functions.js has parsed!");
 

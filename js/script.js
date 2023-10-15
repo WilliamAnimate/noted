@@ -1,14 +1,3 @@
-const textbox = document.getElementById('textbox');
-
-let clearOnClick = true; // haha boolean
-let snackbarReady = true;
-let snackbarQueueTitle = []
-let snackbarQueueMessage = []
-let snackbarQueueSize = 0;
-let snackbarIsShowingQueue = false;
-
-const debug = true;
-
 textbox.addEventListener('click', () => {
 	focus();
 });
@@ -21,9 +10,9 @@ console.log("my essental code have ran!");
 
 // goofy ahh code gonna run every time you hit a key, ggs.
 // TODO: make code to unregister event listener? I don't trust JIT if it can't handle a while(true)
-document.addEventListener('keyup', e => {
+document.addEventListener("keyup", e => {
 	// use case switch when too much if statements
-	if (e.key === 'Escape') {
+	if (e.key === "Escape") {
 		// TODO: handle esc closing the <dialog> element. see functions.js's closeDialog();
 		// could add variables defining whether a dialog is open or not...?
 		unfocus();
@@ -33,33 +22,31 @@ document.addEventListener('keyup', e => {
 });
 document.addEventListener("keydown", e => {
 	// this is for control + whatever
-	if (e.ctrlKey && e.key === 's') {
+	if (e.ctrlKey && e.key === "s") {
 		e.preventDefault();
 		download(textbox.innerHTML, "text.txt");
 	}
 })
 
 // remove styling on paste
+// this should be its own eventlistener because the user might use the system clipboard or something else instead of control+v
 textbox.addEventListener('paste', (e) => {
 	e.preventDefault();
-	const text = (e.clipboardData || window.Clipboard).getData('text/plain');
 	// FIXME: execCommand deprecated 💀
-	document.execCommand('insertText', false, text);
+	document.execCommand('insertText', false, (e.clipboardData || window.Clipboard).getData('text/plain'));
 });
 
 document.getElementById("settings-light-toggle").addEventListener('change', function() {
     if (this.checked) {
-		// document.head.appendChild(Object.assign(document.createElement('link'), {rel: 'stylesheet', href: 'style/light.css'}));
 		replaceCSSFile("style/dark.css", "style/light.css");
 		snackbar("Let there be light", "Successfully changed the theme to light.");
     } else {
-		console.log("a");
 		replaceCSSFile("style/light.css", "style/dark.css");
 		snackbar("The modern world loves darkness.", "Successfully changed the theme to dark.")
     }
 });
 
-console.log("I'm all ready!");
+console.log("Script.js parsed and ready!");
 document.getElementById("settings-light-toggle").checked = false;
 
 // snackbar("hi", "something happend");
