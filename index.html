@@ -3,12 +3,40 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="description" content="Write down anything.">
+		<meta name="author" content="WilliamAnimate">
+		<meta name="copyright" content="WilliamAnimate">
+		<meta name="robots" content="index, follow">
+		<meta name="rating" content="safe for kids">
+
+		<meta itemprop="name" content="Noted.">
+		<meta itemprop="description" content="Write down anything.">
+		<!-- <meta itemprop="image" content="https://example.com/img.png"> -->
+
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://williamanimate.github.io/noted">
+		<meta property="og:title" content="Noted.">
+		<meta property="og:description" content="Write down anything.">
+		<!-- <meta property="og:image" content="https://example.com/img.png"> -->
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Noted.">
+		<meta name="twitter:description" content="Write down anything.">
+		<!-- <meta name="twitter:image" content="https://example.com/img.png"> -->
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="darkreader-lock">
 		<title>Noted</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 		<link rel="stylesheet" href="style/keyframes.css">
 		<link rel="stylesheet" href="style/style.css">
 		<link rel="stylesheet" href="style/dark.css">
+
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
 
 		<script fetchpriority="high" src="js/functions.js" async></script>
 		<script fetchpriority="low" src="js/script.js" defer></script>
@@ -34,21 +62,39 @@
 
 		<div id="settingsmenu" class="">
 			<div id="settingsinner">
-				<h1>Theme</h1>
+				<h1>Settings</h1>
+				<h2>Theme</h2>
 				<input type="checkbox" id="settings-light-toggle">
 				<label for="settings-light-toggle"> Use light mode</label>
-				<h3>aaaa</h3>
-				<p>nahs</p>
+				<h2>Text wrapping</h2>
+				<input type="checkbox" id="settings-textwrap-toggle">
+				<label for="settings-textwrap-toggle"> Text wrapping</label>
+				<!-- <button class="button" onclick="toggleTextWrapping()">Toggle text wrapping</button> -->
+				<h2>File</h2>
 				<button class="button" onclick="download(textbox.innerHTML, 'text.txt')">download</button>
-				<h3>Text wrapping</h3>
-				<p id="textWrappingStatusText">check console for errors</p>
-				<button class="button" onclick="toggleTextWrapping()">Toggle text wrapping</button>
-					<br>
+				<h2>Help</h2>
 				<button class="button" onclick="openDialog('keybinds_and_controls')">Keybinds and controls</button>
+				<button class="button" onclick="openDialog('help')">Help</button>
+				<button class="button" onclick="openDialog('faq')">FAQ</button>
 					<br><br>
-				<a class="button" style="color: red">view source</a>
+				<a class="button" style="color: #0ff; cursor: pointer; text-decoration: none" href="https://github.com/WilliamAnimate/noted">view source!</a>
 			</div>
 		</div>
+
+		<dialog id="faq">
+			<h1><s>FAQ</s> Never Asked Questions</h1>
+			<h2>Will you ever make this more 'text editor-like', like adding bold and not</h2>
+			<p>soon™</p>
+			<button class="button" onclick="closeDialog('faq')">close</button>
+		</dialog>
+
+		<dialog id="help">
+			<h1>help</h1>
+			<p>if this is an actual plea for help, <b>cope.</b></p>
+			<p>if you have trouble using the UI, please consider <b>getting good.</b></p>
+			<p>otherwise, if you need help with keybinds, considering viewing <a class="button" onclick="openDialog('keybinds_and_controls')">this</a></p>
+			<button class="button" onclick="closeDialog('help')">close</button>
+		</dialog>
 
 		<dialog id="keybinds_and_controls">
 			<h1>Noted's survival guide</h1>
@@ -56,6 +102,8 @@
 			<p><b>esc</b> - escape key to unfocus the editor</p>
 			<p><b>.</b> - dot key to focus editor.</p>
 			<p><b>ctrl s</b> - control + s key to download your file.</p>
+			<p><b>control + a + backspace</b> - control + a selects everything, backspace deletes everything.</p>
+			<p><b>control + a + c</b> - control + a selects everything, c copies everything.</p>
 				<br><br><br>
 			<p><b>PROTIP</b>: did ju know: control+v to paste whatever is on your clipboard! copy something with control+c to start.</p>
 			<button class="button" onclick="closeDialog('keybinds_and_controls')">Close</button>
