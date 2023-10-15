@@ -202,4 +202,49 @@ function replaceCSSFile(original, replaceWith) {
 		head.appendChild(link);
 	}
 }
+
+/**
+ * Closes a dialog element. I literally copied and pasted this code from another project of mine.
+ * @param {*} dial the ID of the dialog to close
+ */
+function closeDialog(dial) {
+	const dialog = document.getElementById(dial);
+	dialog.style.opacity = '0';
+	dialog.style.transform = 'translateY(20px)';
+
+	setTimeout(function() {
+		dialog.close();
+
+		// reset
+		dialog.style.opacity = '1';
+		dialog.style.transform = 'translateY(0px)';
+	}, 295);
+}
+
+/**
+ * Opens a dialog element. I literally copied and pasted this code from another project of mine.
+ * @param {*} dial the ID of the dialog to open
+ */
+function openDialog(dial) {
+	console.log("ok")
+	const dialog = document.getElementById(dial);
+	dialog.style.opacity = '0';
+	dialog.style.transform = 'translateY(-20px)';
+
+	dialog.showModal();
+	dialog.style.opacity = '1';
+	dialog.style.transform = 'translateY(0px)';
+
+	// crappy fix to prevent the dialog from being at the bottom
+	dialog.scrollTo(0, 0);
+}
+
+/**
+ * shows the keybinds
+ *
+ * **THIS FUNCTION IS NOT DESIGNED TO BE CALLED BY ANY CODE, ONLY BY THE END USER FROM CLICKING A BUTTON**
+ */
+function hlp_showKeybinds() {
+	openDialog("keybinds_and_controls");
+}
 console.log("functions.js has parsed!");

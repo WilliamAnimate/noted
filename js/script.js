@@ -23,6 +23,8 @@ console.log("my essental code have ran!");
 // TODO: make code to unregister event listener? I don't trust JIT if it can't handle a while(true)
 document.addEventListener('keyup', e => {
 	if (e.key === 'Escape') {
+		// TODO: handle esc closing the <dialog> element. see functions.js's closeDialog();
+		// could add variables defining whether a dialog is open or not...?
 		unfocus();
 	} else if (e.key === '.') {
 		focus();
@@ -48,6 +50,11 @@ document.getElementById("settings-light-toggle").addEventListener('change', func
 		snackbar("The modern world loves darkness.", "Successfully changed the theme to dark.")
     }
 });
+
+// what this code does is focuses and then unfocuses it, sometimes fixing that problem with borders.
+// this sometimes works, but sometimes doesn't
+focus();
+unfocus();
 
 console.log("I'm all ready!");
 document.getElementById("settings-light-toggle").checked = false;

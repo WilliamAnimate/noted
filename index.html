@@ -44,8 +44,21 @@
 				<h3>Text wrapping</h3>
 				<p id="textWrappingStatusText">check console for errors</p>
 				<button class="button" onclick="toggleTextWrapping()">Toggle text wrapping</button>
+					<br>
+				<button class="button" onclick="hlp_showKeybinds()">Keybinds and controls</button>
+					<br><br>
+				<a class="button" style="color: red">view source</a>
 			</div>
 		</div>
+
+		<dialog id="keybinds_and_controls">
+			<h1>Noted's survival guide</h1>
+			<p>Thanks for chosing Noted! noted isn't super advanced, but we do have keybinds to make your life just a little easier from everything that may occur in your day to day life.</p>
+			<p><b>esc</b> - escape key to unfocus the editor</p>
+			<p><b>.</b> - dot key to focus editor.</p>
+			<p><b>ctrl s</b> - control + s key to download your file.</p>
+			<button class="button" onclick="closeDialog('keybinds_and_controls')">Close</button>
+		</dialog>
 
 		<p class="bottom">made with little care by <span><a href="https://github.com/williamanimate">williamanimate</a></span> whilst listening to <a href="https://youtu.be/zMlH7RH6psw">this</a> on loop over and over and over and over again.</p>
 		<p class="bottom small">vedal your ai is broken btw 💯</p>

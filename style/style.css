@@ -238,3 +238,18 @@ input[type="checkbox"]:checked + label:before {
 	background-color: #3f3f3f;
 	border-color: #696969;
 }
+
+/* dialog */
+#keybinds_and_controls {
+	width: 800px;
+	padding: 30px;
+	/* 1c1c1c */
+	background-color: #242424;
+	border: #fff;
+	border-radius: 1ex;
+	color: #eee;
+	border: transparent;
+
+	/* animation */
+	transition: opacity 0.3s, transform 0.3s;
+}
