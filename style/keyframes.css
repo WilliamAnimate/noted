@@ -9,8 +9,8 @@
 }
 
 @keyframes settingsd {
-	0%{opacity:0;right:25px}
-	100%{opacity:1;right:50px}
+	0%{opacity:0;left:100px}
+	100%{opacity:1;left:50px}
 }
 
 @keyframes fadein {
