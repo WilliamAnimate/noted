@@ -1,3 +1,14 @@
+const textbox = document.getElementById('textbox');
+
+let clearOnClick = true;
+let snackbarReady = true;
+let snackbarQueueTitle = []
+let snackbarQueueMessage = []
+let snackbarQueueSize = 0;
+let snackbarIsShowingQueue = false;
+
+const debug = false;
+
 /**
  * prints stuff if the `debug` variable is true.
  * @param {*} input input
@@ -180,11 +191,9 @@ function snackbarVerifyQueueSizeIsIntact() {
 		console.error(snackbarQueueSize);
 		console.error(snackbarQueueTitle);
 		console.error(snackbarQueueMessage);
-		if (!!debug) {
-			snackbarQueueSize = 0;
-			snackbarQueueMessage = [];
-			snackbarQueueTitle = [];
-		}
+		snackbarQueueSize = 1; // because the code ahead may deincrement
+		snackbarQueueMessage = [];
+		snackbarQueueTitle = [];
 		return true;
 	}
 	return false;
